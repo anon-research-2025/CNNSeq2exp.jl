@@ -8,25 +8,29 @@
 
 
 
-The available datasets that have been processed, the pretrained models, and
-hyperparameters, e.g. for the yeast dataset, is
+The available processed datasets, along with the corresponding pretrained
+models and hyperparameters (for example, those for the yeast dataset), are:
 ```
 https://github.com/anon-research-2025/datasets/tree/main/processed/Aviv/yeast/yeast.hdf5 
 https://github.com/anon-research-2025/saved_models/blob/main/aviv_yeast_model.jld2
 https://github.com/anon-research-2025/saved_models/blob/main/aviv_yeast_hp.jld2
 ```
 
-Once you have the files in place, and e.g. set 
+Once the necessary files are in place, set the following paths accordingly:
 ```
 fp = <yeast hdf5 file path>
 hp_load_path = <hyperparameter jld2 file path>
 model_load_path = <model jld2 file path>
 ```
-You can then run the following command to use the pretrained model to render the results:
+To use the pre-trained model and render the results, run:
 ```
 save_where = "save_here"
 take_pretrained_and_render(fp, hp_load_path, model_load_path, save_where)
 ```
-where `save_where` is the folder path that stores the rendered results.
+Here, `save_where` specifies the directory where the rendered results will be saved.
 
+If you prefer to train a new model instead of using a pre-trained one, simply run:
+```
+train_and_render(fp, save_where)
+```
 

@@ -65,7 +65,7 @@ function get_this_mode_pval_dist_percentage(m, x::Int, k)
     len = length(sorted_indices)
     this_mode_percentage = @view this_mode_percentage[sorted_indices]
     this_mode_dist = @view this_mode_dist[sorted_indices, :]
-    this_mode_colors = PlotPWM.arrow_color_palette[1:len] # note that the arrow plot sort weights from low to high
+    this_mode_colors = EntroPlots.arrow_color_palette[1:len] # note that the arrow plot sort weights from low to high
     return this_mode_pval, this_mode_dist, this_mode_percentage, this_mode_colors
 end
 

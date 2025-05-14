@@ -1,7 +1,7 @@
 function make_cross_color_df(crosslink_signitures::Vector{String})
     list = []
     for (ind, s) in enumerate(crosslink_signitures)
-        push!(list, (crosslink_signiture = s, color = PlotPWM.crosslink_palette["$ind"]))
+        push!(list, (crosslink_signiture = s, color = EntroPlots.crosslink_palette["$ind"]))
     end
     return DataFrame(list)
 end

@@ -13,7 +13,7 @@ using Printf, JSON3, Mustache
 using CairoMakie, ImageShow
 using JLD2, ShaneGPUCountMinSketch
 using Plots, LinearAlgebra, Distributions
-using PlotPWM
+using EntroPlots
 
 
 include("const.jl")
@@ -24,7 +24,6 @@ include("model/forward.jl")
 include("model/inference.jl")
 include("utils/load.jl")
 include("utils/yy_plots.jl")
-
 
 include("motif_analysis/motif.jl")
 include("render/const.jl")

@@ -65,11 +65,11 @@ function plot_horizontal_bars(ys::AbstractVector{<:Number},
     # Determine dynamic text size
     n_bars = length(ys)
     plot_height = clamp(n_bars * 30, plot_height_min, plot_height_max)  # Adjust plot height dynamically (min: 200px, max: 1200px)
-    text_size = PlotPWM.Plots.clamp(Int(ceil(plot_height / n_bars / 15)), 7, 20)  # Scale text size, limit between 7 and 20
+    text_size = EntroPlots.Plots.clamp(Int(ceil(plot_height / n_bars / 15)), 7, 20)  # Scale text size, limit between 7 and 20
     ylabel_size = clamp(Int(ceil(plot_height / 100)), 8, 20)  # Scale ylabel size dynamically based on plot height
 
     # Define the plot
-    p = PlotPWM.Plots.bar(1:n_bars, ys,
+    p = EntroPlots.Plots.bar(1:n_bars, ys,
         orientation = :horizontal,
         legend = false, 
         yrange = (0.5, n_bars + 0.5),  # Ensure the range fits the bars
@@ -78,20 +78,20 @@ function plot_horizontal_bars(ys::AbstractVector{<:Number},
         yticks = (1:n_bars, y_names),  # Assign positions and names to y-axis ticks
         ylabel = "Gap size (number of nucleotides)",     # Y-axis title
         yguidefontsize = ylabel_size, # Adjust the font size of the ylabel dynamically
-        margin = 10PlotPWM.Plots.mm,   # Add space for annotations
+        margin = 10EntroPlots.Plots.mm,   # Add space for annotations
         size = (650, plot_height)  # Dynamically set the height of the plot
     )
 
     # Annotate the quantities on the bars
     annotation_offset = maximum(ys) * bar_offset_factor
     for (ind, yi) in enumerate(ys)
-        text_here = PlotPWM.Plots.text("$yi", :black, text_size, :left)
+        text_here = EntroPlots.Plots.text("$yi", :black, text_size, :left)
         # @info "$text_here"
-        PlotPWM.Plots.annotate!(p, yi + annotation_offset, ind, text_here)  # Offset for annotations
+        EntroPlots.Plots.annotate!(p, yi + annotation_offset, ind, text_here)  # Offset for annotations
     end
 
     # Save the plot to the specified path
-    PlotPWM.Plots.savefig(p, savepath)
+    EntroPlots.Plots.savefig(p, savepath)
 end
 
 function save_as_meme(this_pfm, save_name::String; name = "", num_sites = 100)
@@ -195,7 +195,7 @@ function save_logos!(
             pfm = normalize_countmat(x_motifs[k][d])
             save_as_meme(pfm, joinpath(save_folder_here, "$(get_d_str(d)).meme"))
             highlighted_regions = make_highlighted_regions(k, d, hp)
-            PlotPWM.chk_overlap(highlighted_regions) && (@info "k: $k, d:$d")
+            EntroPlots.chk_overlap(highlighted_regions) && (@info "k: $k, d:$d")
             save_path_pfm = joinpath(save_folder_here, "$(get_d_str(d)).png")
             save_logoplot(
                 pfm,

@@ -2,7 +2,7 @@
 
 julia_version = "1.11.5"
 manifest_format = "2.0"
-project_hash = "e51fec139d2664644b49b329a4757f54fe98c20b"
+project_hash = "a5518b5d9480c060ef9632c7ce216ac1617d7661"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -470,6 +470,12 @@ deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
 git-tree-sha1 = "e3290f2d49e661fbd94046d7e3726ffcb2d41053"
 uuid = "5ae413db-bbd1-5e63-b57d-d24a61df00f5"
 version = "2.2.4+0"
+
+[[deps.EntroPlots]]
+deps = ["Plots"]
+git-tree-sha1 = "82610ceb2157e534474964f4d62b8ded55cb31b7"
+uuid = "742586e2-2ccd-48a5-bc1c-31de6daa8fd7"
+version = "0.1.0"
 
 [[deps.EnumX]]
 git-tree-sha1 = "bddad79635af6aec424f53ed8aad5d7555dc6f00"
@@ -1647,12 +1653,6 @@ deps = ["Pkg"]
 git-tree-sha1 = "f9501cc0430a26bc3d156ae1b5b0c1b47af4d6da"
 uuid = "eebad327-c553-4316-9ea0-9fa01ccd7688"
 version = "0.3.3"
-
-[[deps.PlotPWM]]
-deps = ["Plots"]
-git-tree-sha1 = "c69e30662bf84eb14eff1996f1f77966f1f41f2d"
-uuid = "044a62f1-e260-4c1b-b41b-507424d69d9a"
-version = "1.0.5"
 
 [[deps.PlotThemes]]
 deps = ["PlotUtils", "Statistics"]
