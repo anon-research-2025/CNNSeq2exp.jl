@@ -1,6 +1,5 @@
 module CNNSeq2exp
 
-# ok
 
 using HDF5
 using Random

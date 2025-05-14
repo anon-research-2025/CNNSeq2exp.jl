@@ -6,6 +6,16 @@
 [![Coverage](https://codecov.io/gh/anon-research-2025/CNNSeq2exp.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/anon-research-2025/CNNSeq2exp.jl)
 
 
+To install this package, run the Julia's package manager:
+```
+using Pkg
+Pkg.add("CNNSeq2exp")
+```
+
+Once the package is installed, run the package using
+```
+using CNNSeq2exp
+```
 
 
 The available processed datasets, along with the corresponding pretrained
@@ -24,12 +34,20 @@ model_load_path = <model jld2 file path>
 ```
 To use the pre-trained model and render the results, run:
 ```
-save_where = "save_here"
+save_where = <save_here>
 take_pretrained_and_render(fp, hp_load_path, model_load_path, save_where)
 ```
 Here, `save_where` specifies the directory where the rendered results will be saved.
 
-If you prefer to train a new model instead of using a pre-trained one, simply run:
+Concrete example:
+```
+fp = "yeast.hdf5"
+hp_load_path = "aviv_yeast_hp.jld2"
+model_load_path = "aviv_yeast_model.jld2"
+take_pretrained_and_render(fp, hp_load_path, model_load_path, save_where)
+```
+
+On the otherhand, if you prefer to train a new model instead of using a pre-trained one, simply run:
 ```
 train_and_render(fp, save_where)
 ```
